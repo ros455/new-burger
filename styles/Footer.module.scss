@@ -1,0 +1,65 @@
+.footer_wrappper {
+    background-color: rgb(51,51,51);
+    color:white;
+    min-height: 100px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    @media(max-width:600px) {
+        flex-direction: column;
+    }
+}
+
+.logotype_wrapper {
+    display: flex;
+    align-items: center;
+    width: 15%;
+    justify-content: space-around;
+    @media(max-width:600px) {
+        width: 30%;
+    }
+}
+
+.logotype_text {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+
+.pay_and_delivery {
+    width: 15%;
+    @media(max-width:600px) {
+        width: 60%;
+        text-align: center;
+    }
+}
+
+.contacts {
+    width: 25%;
+    @media(max-width:600px) {
+        width: 60%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.contacts_item_wrapper {
+    display: flex;
+    align-items: center;
+    p{
+        padding-left: 15px;
+        margin: 5px 0px;
+        @media(max-width:600px) {
+            margin: 15px 0px;
+        }
+    }
+    
+}
+
+.burber_icon {
+    width: 40px;
+    height: 40px;
+}

@@ -1,0 +1,48 @@
+.title_wrapper {
+    text-align: center;
+    margin-bottom: 30px;
+
+    p {
+        color: #3f3d33;
+        padding: 0 0 22px;
+        margin: 0 0 13px;
+        position: relative;
+        font-weight: 100;
+        font-size: 26px;
+        line-height: 20px;
+        text-transform: uppercase;
+        // border-bottom: 1px solid white;
+    }
+
+    p::after {
+        position: absolute;
+        content: "";
+        left: 50%;
+        bottom: -10px;
+        transform: translateX(-50%);
+        width: 5%;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.5);
+    }
+}
+
+.main_block {
+    font-size: 22px;
+}
+
+.free_delivery {
+    font-weight: 600;
+    font-size: 26px;
+}
+
+.list_ul {
+    li {
+        list-style: inside;
+        line-height: 45px;
+    }
+}
+
+.address {
+    font-weight: 600;
+    font-size: 26px;
+}

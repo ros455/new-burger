@@ -1,0 +1,33 @@
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.categories_item {
+    width: 30%;
+    text-align: center;
+    @media(max-width:1000px) {
+        width: 50%;
+    }
+
+    @media(max-width:500px) {
+        width: 100%;
+    }
+}
+
+.image_wrapper{
+    display: inline-block;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid white;
+}
+
+.image {
+    transition: 1s;
+    display: block;
+    &:hover {
+        transform: scale(1.2);
+    }
+}
