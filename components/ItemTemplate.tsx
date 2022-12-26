@@ -47,7 +47,7 @@ const Template:FC<templateIProps> = ({props, title,link}) => {
         <p>{title}</p>
         </div>
                 <div className={style.main_block}>
-        {props.map((el:ITemplate) => (
+        {props && props.map((el:ITemplate) => (
           <div key={el.id} className={style.template_item}>
 
               <Link href={`/${link}/${el.id}`} className={style.photo_wrapper}>
