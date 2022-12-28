@@ -50,8 +50,7 @@ const SidePanel = () => {
     const [show, setShow] = useState(false);
     const dispatch = useAppDispatch();
     const active = useAppSelector((state) => state.style.sidePanel)
-
-
+    
     const cheackActiveClass = (title:string) => {
         dispatch(setActiceSidePanel(title));
       }

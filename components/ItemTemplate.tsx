@@ -34,6 +34,7 @@ const Template:FC<templateIProps> = ({props, title,link}) => {
     }
   }
 
+
     return (
       <>
       <Head>
