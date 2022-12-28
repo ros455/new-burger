@@ -2,7 +2,7 @@ import {useState} from 'react';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { FC } from 'react';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 import { ITemplate } from '../../types';
 import Template from '../../components/ItemTemplate';
 
@@ -10,7 +10,7 @@ interface coffeTeaIProps {
     coffe_tea: ITemplate,
 }
 
-export const getServerSideProps:GetServerSideProps = async () => {
+export const getStaticProps:GetStaticProps = async () => {
     const response = await fetch(`${process.env.API_HOST}/coffe-tea`);
     const data = await response.json();
     
