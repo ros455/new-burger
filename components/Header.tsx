@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Link from 'next/link';
 import style from '../styles/Header.module.scss'
 import {GiHamburger} from 'react-icons/gi'
@@ -7,7 +7,20 @@ import {BiTime} from 'react-icons/bi'
 import {BsCart4} from 'react-icons/bs'
 import { useAppSelector } from '../hook';
 const Header = () => {
+    const [cartLength, setCartLength] = useState(0);
     const cart = useAppSelector((state) => state.cart.items);
+
+    useEffect(() => {
+        console.log('efect');
+        
+        setCartLength(0)
+        cart.forEach((el) => {
+            setCartLength(cartLength => cartLength + el.count)
+            console.log('cartLength',cartLength);
+        })
+    },[cart])
+    
+
     return (
         <header className={style.header_wrapper}>
             <div className={style.logotype_wrapper}>
@@ -39,7 +52,7 @@ const Header = () => {
                 <Link href='/cart' className={style.cart_wrapper}>
                 <BsCart4 className={style.cart_icon}/>
                 <div className={style.count_item_wrapper}>
-                    <p>{cart.length}</p>
+                    <p>{cartLength}</p>
                 </div>
                 </Link>
             </div>

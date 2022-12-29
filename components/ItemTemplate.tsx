@@ -71,11 +71,23 @@ const Template:FC<templateIProps> = ({props, title,link}) => {
               
               <div className={style.template_selling}>
                 <p className={style.price}>{el.price} ₴</p>
-                <div className={style.add_to_cart__wrapper}>
+                <div className={style.add_to_cart__wrapper}
+                onClick={() => addToCart(el)}>
                   <p className={style.add_to_cart_text }>Додати у кошик</p>
                   <BsFillCartPlusFill 
                   className={style.cart_icon}
-                  onClick={() => addToCart(el)}/>
+                  />
+                  <div>{
+                    cart.map((element:ITemplate) => (
+                      <div key={element.id}>
+                      {element.count != el.count
+                      ? 
+                      <p className={style.count_item}>{element.name == el.name && element.count}</p>
+                      : 
+                      <p className={style.count_item}>{element.name == el.name && el.count}</p>}
+                      </div>
+                    ))
+                  }</div>
                 </div>
               </div>
           </div>

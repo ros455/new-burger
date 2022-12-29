@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import style from '../styles/Cart.module.scss'
-
+import { useForm } from 'react-hook-form'
 const SelectDeliveryInCart = () => {
     const [delivery, setDelivery] = useState(false);
     const [selfPickup, setSelfPickup] = useState(false);
@@ -15,29 +15,51 @@ const SelectDeliveryInCart = () => {
         setSelfPickup(!selfPickup)
     }
 
+    const {
+      register,
+      formState: { errors },
+      handleSubmit,
+      reset,
+    } = useForm({
+      mode: 'onBlur'
+    });
+
+    const onSubmit = (data:any) => {
+      console.log(JSON.stringify(data));
+      reset();
+    }
+
     return (
         <>
         <div className={style.button_block}>
         <button onClick={handledelivery} className={style.order_button}>Замовити доставку</button>
         <button onClick={handleSelfPickup} className={style.order_button}>Забрати самовивіз</button>
         </div>
-        {delivery &&
-                    <form className={style.form_block}>
+        {selfPickup &&
+                    <form className={style.form_block} onSubmit={handleSubmit(onSubmit)}>
                     <label>
                       Ваше Імя
-                    <input type='text' className={style.input}/>
+                    <input type='text' className={style.input} 
+                  {...register('name', {
+                    required: true
+                  })} />
                     </label>
+                    <div className={style.error_messege}>{errors?.name && <p>Введіть ім'я</p>}</div>
                     <label>
                       Ваш номер телнфону
-                      <input type='text' className={style.input}/>
+                      <input type='text' className={style.input}
+                      {...register('phone', {
+                        required: true
+                      })}/>
                     </label>
+                    <div className={style.error_messege}>{errors?.phone && <p>Введіть номер телефону</p>}</div>
                     <div>
                     <button className={style.order_button }>Оформити замовлення</button>
                     </div>
                   </form>   
         }
 
-        {selfPickup && 
+        {delivery && 
                             <form className={style.form_block}>
                             <label>
                               Ваше Імя
