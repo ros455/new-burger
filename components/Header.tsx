@@ -11,8 +11,6 @@ const Header = () => {
     const cart = useAppSelector((state) => state.cart.items);
 
     useEffect(() => {
-        console.log('efect');
-        
         setCartLength(0)
         cart.forEach((el) => {
             setCartLength(cartLength => cartLength + el.count)
